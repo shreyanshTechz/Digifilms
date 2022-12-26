@@ -1,0 +1,314 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Arvo&family=Dancing+Script&family=Lobster&family=Merriweather&family=Pacifico&family=Patrick+Hand&family=Playfair+Display:ital,wght@1,500&family=Satisfy&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+    .yui{
+        display: flex;
+        flex-direction: row;
+    }
+    body{
+        font-family: patrick hand;
+        font-size: x-large;
+    }
+    .nav-link{
+        color: black;
+    }
+
+article figure::after, article figure .image, article figure .lighting, article .item-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+article .item-wrapper, article .item-content {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+article .item-wrapper, article figure, article .item-content {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+article {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: calc(33.33% - 4%);
+  height: 24vw;
+  margin: 1.8%;
+  -webkit-perspective: 1600px;
+          perspective: 1600px;
+  cursor: pointer;
+}
+article .item-wrapper {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+article .item-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+  box-shadow: 0 8px 38px rgba(0, 0, 0, 0.86);
+}
+article .item-wrapper:hover::before {
+  box-shadow: 0 14px 64px rgba(0, 0, 0, 0.92);
+}
+article .item-wrapper.enter.ease, article .item-wrapper.leave {
+  -webkit-transition: all .1s ease-in;
+  transition: all .1s ease-in;
+}
+article figure {
+  width: 100%;
+  height: 100%;
+}
+article figure::after {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.06);
+}
+article figure .image {
+  background-position: center;
+  background-size: cover;
+}
+article figure .lighting {
+  background: -webkit-linear-gradient(315deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 100%);
+}
+article .item-content {
+  pointer-events: none;
+  padding: 20% 20px 20px;
+  color: #fff;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.76);
+}
+article .item-content h1 {
+  margin-bottom: 5%;
+  -webkit-transform: translateZ(100px);
+          transform: translateZ(100px);
+}
+article .item-content p {
+  font-size: 13px;
+  margin-bottom: 5%;
+  -webkit-transform: translateZ(50px);
+          transform: translateZ(50px);
+}
+article .item-content .author {
+  -webkit-transform: translateZ(70px);
+          transform: translateZ(70px);
+}
+
+@media (max-width: 860px) {
+  article {
+    width: calc(50vw - 3.9vw);
+    height: 38vw;
+  }
+}
+@media (max-width: 667px) {
+  article {
+    width: calc(100vw - 3.9vw);
+    height: 60vw;
+  }
+  
+}
+.blob-c { z-index:-1; min-height: 100vh; overflow: hidden; position: absolute;
+    width: 100%; opacity: 20%;  /* background: rgba(255,255,255,0.1) */ } .shape-blob {
+    background: #26C3F9; height: 60px; width: 80px; border-radius: 40% 50% 30%
+    40%; animation: transform 18s ease-in-out infinite both alternate,
+    movement_one 12s ease-in-out infinite both; opacity: .7; position: absolute;
+    left: 75%; top: 40%; } .shape-blob.one { background: #0085FF; height: 150px;
+    width: 200px; left: 10px; top: 10px; transform: rotate(-180deg); animation:
+    transform 8s ease-in-out infinite both alternate, movement_two 20s
+    ease-in-out infinite both; } .shape-blob.six { background: #0EAFFF; height:
+    70px; width: 100px; left: 160px; top: 200px; transform: rotate(-180deg);
+    animation: transform 5s ease-in-out infinite both alternate, movement_two 5s
+    ease-in-out infinite both; } .shape-blob.four { background: #4EAEFF; height:
+    100px; width: 80px; left: 350px; top: 60px; transform: rotate(-180deg);
+    animation: transform 17s ease-in-out infinite both alternate, movement_two
+    13s ease-in-out infinite both; } .shape-blob.five { background: #0085FF;
+    height: 100px; width: 80px; left: 480px; top: 30px; transform:
+    rotate(-180deg); animation: transform 12s ease-in-out infinite both
+    alternate, movement_two 18s ease-in-out infinite both; } .shape-blob.two {
+    background: #4EAEFF; height: 150px; width: 150px; left: 600px; top: 150px;
+    transform: rotate(-180deg); animation: transform 10s ease-in-out infinite
+    both alternate, movement_two 10s ease-in-out infinite both; }
+    .shape-blob.three { background: #0EAFFF; height: 150px; width: 150px; left:
+    800px; top: 30px; transform: rotate(-180deg); animation: transform 7s
+    ease-in-out infinite both alternate, movement_two 23s ease-in-out infinite
+    both; } @keyframes transform { 0%, 100% { border-radius: 33% 67% 70% 30% /
+    30% 40% 70% 70%; } 20% { border-radius: 37% 63% 51% 49% / 37% 35% 35% 63%; }
+    40% { border-radius: 36% 64% 64% 36% / 64% 48% 52% 26%; } 60% {
+    border-radius: 37% 63% 51% 49% / 30% 30% 70% 73%; } 80% { border-radius: 40%
+    60% 42% 58% / 51% 51% 49% 59%; } } @keyframes movement_one { 0%, 100% {
+    transform: none; } 50% { transform: translate(50%, 20%) rotateY(10deg)
+    scale(1); } } @keyframes movement_two { 0%, 500% { transform: none; } 50% {
+    transform: translate(50%, 20%) rotate(-200deg) scale(1.3); } }
+</style>
+    <nav style="width:100%; color:rgb(0, 0, 0)" class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"> MovieZone🎬</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Binge</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Language
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                <li><a class="dropdown-item" href="../details/english">English</a></li>
+                <li><a class="dropdown-item" href="../details/hindi">Hindi</a></li>
+                <li><a class="dropdown-item" href="../details/bhojpuri">Bhojpuri</a></li>
+                <li><a class="dropdown-item" href="../details/punjabi">Punjabi</a></li>
+                <li><a class="dropdown-item" href="../details/spanish">Spanish</a></li>
+              </ul>
+            </li>
+
+          </ul>
+          <form action="/search" method="post" class="d-flex">
+            <input
+              name="title"
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button
+              style="color: rgb(0, 0, 0);"
+              class="btn btn-outline-success"
+              type="submit"
+            >Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+<div class="blob-c">
+        <div class="shape-blob"></div>
+        <div class="shape-blob one"></div>
+        <div class="shape-blob two"></div>
+        <div class="shape-blob three"></div>
+        <div class="shape-blob four"></div>
+        <div class="shape-blob five"></div>
+        <div class="shape-blob six"></div>
+      </div>
+    <hr>
+<div class="container yui">
+    <article>
+  <div class="item-wrapper">
+    <figure>
+        <img class="image" src="{{post.imageurl}}" alt="">
+      {{!-- <div class="image" style="background-image:url(https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLWTl4V183QkdOZG8);"></div> --}}
+      <div class="lighting"></div>
+  </figure>
+  </div>
+</article>
+    {{!-- <img src="../images/a.png" alt="" srcset=""> --}}
+    <div class="container">
+<div class="content my-4">
+    <div class="item-content">
+      <h1 style="color: #4EAEFF;">{{post.title}}</h1>
+    </div>
+    <div class="content my-4"></div>
+        <span style="color: #0085FF; font-weight:800">IMDB - </span>{{post.imdbrating}}
+    </div>
+    <div class="content my-4">
+         <span style="color: #0085FF; font-weight:800">Story - </span> {{post.synopsis}}
+    </div>
+    <div class="content my-4">
+        {{#each post.genre}}
+         <span style="color: #7c4101; font-weight:800">{{this}} - </span> {{/each}}
+    </div>
+    
+    <div class="content my-4">
+         <span style="color: #0085FF; font-weight:800">Release Year - </span> {{post.released}}
+    </div>
+    <div class="content my-4">
+         <span style="color: #0085FF; font-weight:800">Runtime - </span> {{extra.runtime}}
+    </div>
+    <div class="content my-4">
+    {{#each extra.language}}
+         <span style="color: #7c4101; font-weight:800">{{this}} - </span> {{/each}}
+    </div>
+    <div style="display: flex;" class="con">
+    {{#each extra.streamingAvailability}}
+        {{#each this}}
+            {{#each this}}
+                {{!-- {{#each this}} --}}
+                <a style="margin:4px; text-decoration:none" href="{{this.url}}">{{this.platform}}</a><br>{{/each}}{{/each}}{{/each}}    
+    </div>
+    
+      <hr>          {{!-- {{/each}} --}}
+      <div class="summary">
+        {{extra2.plotSummary}}
+      </div>
+      <hr>
+      <div class="reviews">
+        <h2>Reviews - </h2>
+        {{#each extra2.reviews}}
+            <div class="div">
+                {{this}}
+            </div>
+        {{/each}}
+      </div>
+</div>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+    var articles = $('article > .item-wrapper'),
+    lightingRgb = '255,255,255';
+
+articles.mousemove(function(e) {
+  var current = $(this),
+      x = current.width() - e.offsetX * 2,
+      y = current.height() - e.offsetY * 2,
+      rx = -x / 30,
+      ry = y / 24,
+      deg = Math.atan2(y, x) * (180 / Math.PI) + 45;
+  current.css({"transform":"scale(1.05) rotateY("+rx+"deg) rotateX("+ry+"deg)"});
+  $('figure > .lighting',this).css('background','linear-gradient('+deg+'deg, rgba('+lightingRgb+',0.32) 0%, rgba('+lightingRgb+',0) 100%)');
+});
+
+articles.on({
+  'mouseenter':function() {
+    var current = $(this);
+    current.addClass('enter ease').removeClass("leave");
+    setTimeout(function(){
+      current.removeClass('ease');
+    }, 280);
+  },
+  'mouseleave':function() {
+    var current = $(this);
+    current.css({"transform":"rotate(0)"});
+    current.removeClass('enter').addClass("leave");
+    $('figure > .lighting',this).removeAttr('style');
+  }}
+);
+</script>

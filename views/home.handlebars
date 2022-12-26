@@ -1,0 +1,284 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpha</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <style>
+    body{ background-color: #181e2e; } :root { --red: hsl(0, 78%, 62%); --cyan:
+    hsl(180, 62%, 55%); --orange: hsl(34, 97%, 64%); --blue: hsl(212, 86%, 64%);
+    --varyDarkBlue: hsl(234, 12%, 34%); --grayishBlue: hsl(229, 6%, 66%);
+    --veryLightGray: hsl(0, 0%, 98%); --weight1: 200; --weight2: 400; --weight3:
+    600; } .glass{ /* From https://css.glass */ background: rgba(255, 255, 255,
+    0.8); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.3px); -webkit-backdrop-filter: blur(12.3px);
+    border: 1px solid rgba(255, 255, 255, 0.3); } .container { display: flex;
+    width: 100%; margin: 10; } .container2 { width: 50%; } @import
+    url('https://fonts.googleapis.com/css?family=Playfair+Display:400,900');
+    body { margin: 0; padding: 0; } .container { height:100vh; width: 100vw;
+    display: flex; flex-direction: row; align-items: center; justify-content:
+    center; } .blob-c { min-height: 100vh; overflow: hidden; position: absolute;
+    width: 100%; opacity: 20%; background: linear-gradient(178deg, black,
+    #0012ff); /* background: rgba(255,255,255,0.1) */ } .shape-blob {
+    background: #26C3F9; height: 60px; width: 80px; border-radius: 40% 50% 30%
+    40%; animation: transform 18s ease-in-out infinite both alternate,
+    movement_one 12s ease-in-out infinite both; opacity: .7; position: absolute;
+    left: 75%; top: 40%; } .shape-blob.one { background: #0085FF; height: 150px;
+    width: 200px; left: 10px; top: 10px; transform: rotate(-180deg); animation:
+    transform 8s ease-in-out infinite both alternate, movement_two 20s
+    ease-in-out infinite both; } .shape-blob.six { background: #0EAFFF; height:
+    70px; width: 100px; left: 160px; top: 200px; transform: rotate(-180deg);
+    animation: transform 5s ease-in-out infinite both alternate, movement_two 5s
+    ease-in-out infinite both; } .shape-blob.four { background: #4EAEFF; height:
+    100px; width: 80px; left: 350px; top: 60px; transform: rotate(-180deg);
+    animation: transform 17s ease-in-out infinite both alternate, movement_two
+    13s ease-in-out infinite both; } .shape-blob.five { background: #0085FF;
+    height: 100px; width: 80px; left: 480px; top: 30px; transform:
+    rotate(-180deg); animation: transform 12s ease-in-out infinite both
+    alternate, movement_two 18s ease-in-out infinite both; } .shape-blob.two {
+    background: #4EAEFF; height: 150px; width: 150px; left: 600px; top: 150px;
+    transform: rotate(-180deg); animation: transform 10s ease-in-out infinite
+    both alternate, movement_two 10s ease-in-out infinite both; }
+    .shape-blob.three { background: #0EAFFF; height: 150px; width: 150px; left:
+    800px; top: 30px; transform: rotate(-180deg); animation: transform 7s
+    ease-in-out infinite both alternate, movement_two 23s ease-in-out infinite
+    both; } @keyframes transform { 0%, 100% { border-radius: 33% 67% 70% 30% /
+    30% 40% 70% 70%; } 20% { border-radius: 37% 63% 51% 49% / 37% 35% 35% 63%; }
+    40% { border-radius: 36% 64% 64% 36% / 64% 48% 52% 26%; } 60% {
+    border-radius: 37% 63% 51% 49% / 30% 30% 70% 73%; } 80% { border-radius: 40%
+    60% 42% 58% / 51% 51% 49% 59%; } } @keyframes movement_one { 0%, 100% {
+    transform: none; } 50% { transform: translate(50%, 20%) rotateY(10deg)
+    scale(1); } } @keyframes movement_two { 0%, 500% { transform: none; } 50% {
+    transform: translate(50%, 20%) rotate(-200deg) scale(1.3); } } h1 {
+    font-family: 'Playfair Display', serif; font-size: 3rem; letter-spacing:
+    2px; font-weight: 900; color: white; line-height: .9em; position: absolute;
+    z-index: 4; text-shadow: 2px 3px 15px rgba(0, 0, 0, .15); } @import
+    url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans',
+    sans-serif } body { display: flex; justify-content: center; align-items:
+    center; min-height: 100vh; background: #181e2e; color: aqua; flex-direction:
+    column; } .square { position: relative; margin: 0 10px; width: 400px;
+    height: 400px; display: flex; justify-content: center; align-items: center;
+    } .square span:nth-child(1) { position: absolute; top: 0; left: 0; width:
+    100%; height: 100%; border: 2px solid rgb(255, 0, 0); border-radius: 32% 58%
+    69% 43% / 48% 32% 59% 55%; transition: 0.5s; animation: animate 6s linear
+    infinite; } .square span:nth-child(2) { position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; border: 2px solid rgb(0, 242, 255);
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; transition: 0.5s;
+    animation: animate 4s linear infinite; } .square span:nth-child(3) {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 2px
+    solid rgb(0, 255, 26); border-radius: 31% 45% 74% 35% / 38% 56% 51% 87%;
+    transition: 0.5s; animation: animate2 10s linear infinite; } .content {
+    position: relative; padding: 40px 60px; color: aqua; text-align: center;
+    transition: 0.5s; z-index: 1000; } .content a { position: relative; display:
+    inline-block; margin-top: 10px; border: 2px solid rgb(0, 0, 0); padding: 6px
+    18px; text-decoration: none; color: rgb(225, 255, 0); font-weight: 600;
+    border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%; } .content a:hover {
+    background: white; color: #333; } @keyframes animate { 0% { transform:
+    rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes animate2 {
+    0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } } .geeks
+    { padding: 200px; text-align: center; } section { width: 100%; min-height:
+    300px; } .pattern { position: relative; } .box p { color:
+    var(--grayishBlue); } .box { border-radius: 5px; box-shadow: 0px 30px 40px
+    -20px var(--grayishBlue); padding: 30px; margin: 20px; } img { float: right;
+    } @media (max-width: 450px) { .box { height: 200px; } } @media (max-width:
+    950px) and (min-width: 450px) { .box { text-align: center; height: 180px; }
+    } .cyan { border-top: 3px solid var(--cyan); } .red { border-top: 3px solid
+    var(--red); } .blue { border-top: 3px solid var(--blue); } .orange {
+    border-top: 3px solid var(--orange); } h2 { font-weight: var(--weight3); }
+    .containere{ display: flex; align-items: center; justify-content: center;
+    height: max-content; } .containere2{ display: flex; align-items: center;
+    justify-content: center; height: max-content; margin: 45vh; } @media
+    (max-width: 500px) { .containere2{ margin: 70vh; flex-direction: column; } }
+    @media (min-width: 950px) { .row1-container { display: flex;
+    justify-content: center; align-items: center; } .row2-container { display:
+    flex; justify-content: center; align-items: center; } .box-down { position:
+    relative; top: 150px; } .box { width: 20%; } .header p { width: 30%; } }
+    .head1{ display: inline-block; margin: 20vh; border: 2px solid rgb(104, 194,
+    236); padding: 6px 18px; text-decoration: none; color:#01d0ff; font-weight:
+    600; border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%; } .imaged{ height:
+    70vh; width: auto; } .nav-link , .navbar-brand{ color:white; }
+    .containera{
+      display: flex;
+    margin: 10px;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    }
+  </style>
+
+  <body>
+
+    <nav style="width:100%; color:aliceblue" class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"> MovieZone🎬</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Binge</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Language
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                <li><a class="dropdown-item" href="../details/english">English</a></li>
+                <li><a class="dropdown-item" href="../details/hindi">Hindi</a></li>
+                <li><a class="dropdown-item" href="../details/bhojpuri">Bhojpuri</a></li>
+                <li><a class="dropdown-item" href="../details/punjabi">Punjabi</a></li>
+                <li><a class="dropdown-item" href="../details/spanish">Spanish</a></li>
+              </ul>
+            </li>
+
+          </ul>
+          <form action="/search" method="post" class="d-flex">
+            <input
+              name="title"
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button
+              style="color: white;"
+              class="btn btn-outline-success"
+              type="submit"
+            >Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+
+      <div class="blob-c">
+        <div class="shape-blob"></div>
+        <div class="shape-blob one"></div>
+        <div class="shape-blob two"></div>
+        <div class="shape-blob three"></div>
+        <div class="shape-blob four"></div>
+        <div class="shape-blob five"></div>
+        <div class="shape-blob six"></div>
+      </div>
+      <h1 id="first" style="font-size: 10vw;" data-aos="slide-up">
+        MOVIE 📽<p style="color: aqua;"> ZONE </p></h1>
+      {{! <h1 id="photo" data-aos="slide-up">Project Alpha helps you To<br />Start Your<br /> Coding Journey...........</h1> }}
+      <h3></h3>
+    </div>
+
+    <div class="containere">
+
+      <div class="cont">
+        <div class="row1-container">
+          <div class="box box-down cyan" data-aos="slide-up">
+            <h2>Bollywood</h2><br />
+            <p>Watch Latest Hindi bollywood movies.</p>
+            {{!-- <img style="height: 100%; width:100%" --}}
+              {{!-- src="https://image.freepik.com/free-vector/bollywood-lettering-with-shiny-mandala-wallpaper_23-2148470400.jpg" --}}
+              {{!-- alt="" --}}
+            {{!-- /> --}}
+          </div>
+
+          <div class="box red" data-aos="slide-up">
+            <h2>Hollywood</h2><br />
+            <p>Watch thrilling Hollywood movies with your friends.</p>
+            <img
+              src="https://assets.codepen.io/2301174/icon-team-builder.svg"
+              alt=""
+            />
+          </div>
+
+          <div class="box box-down blue" data-aos="slide-up">
+            <h2></h2><br />
+            <p>We will provide you the accurate path to start with your coding
+              journey</p>
+            <img
+              src="https://assets.codepen.io/2301174/icon-calculator.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="row2-container">
+          <div class="box orange" data-aos="slide-up">
+            <h2>Ideas for Project</h2><br />
+            <p>Pitch Your Idea and we will help to get right contacts for
+              implementing it</p>
+            <img
+              src="https://assets.codepen.io/2301174/icon-karma.svg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="cateogry">
+        <h2>Language</h2>
+        <div class="grid">
+          <div class="containerq">
+            <div class="row">
+              {{#each this.lists}}
+              <a style="text-decoration:none; color:rgb(197, 197, 197)" href="details/{{this}}" class="col">
+                <div class="containera">
+                  <h3>{{this}}</h3>
+                </div>
+              </a>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/aos@next/dist/aos.js">
+    </script>
+
+    <script>
+      AOS.init();
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+    ></script>
+    <script>
+      var first = document.getElementById("first");
+    </script>
+  </body>
+
+</html>
