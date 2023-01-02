@@ -13,7 +13,6 @@
     .nav-link{
         color: black;
     }
-
 article figure::after, article figure .image, article figure .lighting, article .item-content {
   position: absolute;
   top: 0;
@@ -111,9 +110,12 @@ article .item-content .author {
   }
 }
 @media (max-width: 667px) {
-  article {
+  .article {
     width: calc(100vw - 3.9vw);
     height: 60vw;
+  }
+  .yui{
+    flex-direction: column;
   }
   
 }
@@ -149,6 +151,16 @@ article .item-content .author {
     transform: none; } 50% { transform: translate(50%, 20%) rotateY(10deg)
     scale(1); } } @keyframes movement_two { 0%, 500% { transform: none; } 50% {
     transform: translate(50%, 20%) rotate(-200deg) scale(1.3); } }
+    @media (min-width: 667px) {
+  article{
+    width: calc(81.33% - 4%);
+    height: 68vw;
+  }
+  .yui{
+    flex-direction: column-reverse;
+    font-size: 3.4rem;
+  }
+}
 </style>
     <nav style="width:100%; color:rgb(0, 0, 0)" class="navbar navbar-expand-lg">
       <div class="container-fluid">
@@ -279,6 +291,9 @@ article .item-content .author {
             </div>
         {{/each}}
       </div>
+      {{!-- <div class="trailer">
+        <iframe src={{extra2.trailerUrl}} frameborder="0"></iframe>
+      </div> --}}
 </div>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>
