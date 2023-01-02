@@ -138,7 +138,7 @@ router.get('/info/:slug', (req, res) => {
                 "port": null,
                 "path": "/getadditionalDetails?imdbid=tt7286456",
                 "headers": {
-                    "X-RapidAPI-Key": "99a372f7e7mshd485d46d2c0700ap1d1521jsnd5174231fdad",
+                    "X-RapidAPI-Key": apikey,
                     "X-RapidAPI-Host": "ott-details.p.rapidapi.com",
                     "useQueryString": true
                 }
