@@ -17,6 +17,7 @@
     "express-handlebars": "^6.0.6",
     "express-openid-connect": "^2.10.0",
     "firebase": "^9.14.0",
+    "react": "^18.2.0",
     "react-router-dom": "^6.6.1"
   }
 }
