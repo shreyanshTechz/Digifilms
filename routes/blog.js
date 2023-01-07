@@ -5,7 +5,7 @@ const router = express.Router()
 const http = require("https");
 const { json } = require('express');
 const bodyparser = require('body-parser');
-const apikey = "7914dc87e2msh63c6ef9c498e562p12e7afjsn53bb0e865ab4";
+const apikey = "e26cbcf9c3msh3e2cfe0bb81bc31p1d666ajsn848dd567198c";
 router.use(bodyparser.urlencoded({ extended: true }));
 router.get('/try',(req,res)=>{
     res.render('try')
