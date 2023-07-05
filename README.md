@@ -1,5 +1,7 @@
 <h1> DigiFilms </h1>
 This is a react-based web application that allows users to search for New movies ranging from bollywood to Hollywood. It also provide details of all movies along with their storyline, casts, and also provide the link to watch them online.
+Live Link - 
+<h2> https://movies-sswv.onrender.com/ </h2>
 <h2>
 Installation</h2>
 Clone the repository from Github:
@@ -12,7 +14,7 @@ Install the required packages:</h2>
 -- npm i
 
 <h2> Run the development server:</h2>
--- npm start
+-- nodemon index.js
 <h2>Usage</h2>
 --Search for any movies in the search bar.
 --Select the language in which you wish to watch the movie.
