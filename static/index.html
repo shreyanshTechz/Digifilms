@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <title>Movie App</title>
+</head>
+
+<body>
+    <nav style="width: 100%; color: aliceblue; z-index: 10000" class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"> MovieZone🎬</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation" style="background: white">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Binge</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Language
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="../details/english">English</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../details/hindi">Hindi</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../details/bhojpuri">Bhojpuri</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../details/punjabi">Punjabi</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../details/spanish">Spanish</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <form id="form" action="/search" method="post" class="d-flex">
+                    <input id="search" class="seaech" name="title" class="form-control me-2" type="text"
+                        placeholder="Search" aria-label="Search" />
+                    <button style="color: white" class="btn btn-outline-success" type="submit">
+                        Search
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div id="tags"></div>
+    <div class="container">
+        <div class="blob-c">
+            <div class="shape-blob"></div>
+            <div class="shape-blob one"></div>
+            <div class="shape-blob two"></div>
+            <div class="shape-blob three"></div>
+            <div class="shape-blob four"></div>
+            <div class="shape-blob five"></div>
+            <div class="shape-blob six"></div>
+        </div>
+        <h1 id="first" style="font-size: 10vw" data-aos="slide-up">
+            MOVIE 📽
+            <p style="color: aqua">ZONE</p>
+        </h1>
+    </div>
+    <div id="myNav" class="overlay">
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <!-- Overlay content -->
+        <div class="overlay-content" id="overlay-content"></div>
+
+        <a href="javascript:void(0)" class="arrow left-arrow" id="left-arrow">&#8656;</a>
+
+        <a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow">&#8658;</a>
+    </div>
+    <main id="main"></main>
+    <div class="pagination">
+        <div class="page" id="prev">Previous Page</div>
+        <div class="current" id="current">1</div>
+        <div class="page" id="next">Next Page</div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

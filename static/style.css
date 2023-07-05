@@ -1,0 +1,768 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #22254b;
+    --secondary-color: #373b69;
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+
+header {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--secondary-color);
+}
+
+.search {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: #fff;
+    font-family: inherit;
+}
+
+.search:focus {
+    outline: 0;
+    background-color: var(--primary-color);
+}
+
+.search::placeholder {
+    color: #7378c5;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie {
+    width: 300px;
+    margin: 1rem;
+    border-radius: 3px;
+    box-shadow: 0.2px 4px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+
+.movie img {
+    width: 100%;
+}
+
+.movie-info {
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+    margin-top: 0;
+}
+
+.movie-info span {
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.movie-info span.green {
+    color: lightgreen;
+}
+
+.movie-info span.orange {
+    color: orange;
+}
+
+.movie-info span.red {
+    color: red;
+}
+
+.overview {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    padding: 1rem;
+    max-height: 100%;
+    transform: translateY(101%);
+    transition: transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+    transform: translateY(0)
+}
+
+#tags {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.tag {
+    color: white;
+    padding: 10px 20px;
+    background-color: orange;
+    border-radius: 50px;
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tag.highlight {
+    background-color: red;
+}
+
+.no-results {
+    color: white;
+}
+
+.pagination {
+    display: flex;
+    margin: 10px 30px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.page {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.page.disabled {
+    cursor: not-allowed;
+    color: grey;
+}
+
+.current {
+    padding: 10px 20px;
+    border-radius: 50%;
+    border: 5px solid orange;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.know-more {
+    background-color: orange;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-top: 5px;
+}
+
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 0;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    /* Black fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/opacity */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 10%;
+    /* 25% from the top */
+    width: 100%;
+    /* 100% width */
+    text-align: center;
+    /* Centered text/links */
+    margin-top: 30px;
+    /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    /* Display block instead of inline */
+    transition: 0.3s;
+    /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,
+.overlay a:focus {
+    color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+
+.embed.hide {
+    display: none;
+}
+
+.embed.show {
+    display: inline-block;
+}
+
+.arrow {
+    position: absolute;
+    font-size: 40px;
+}
+
+.arrow.left-arrow {
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+
+.arrow.right-arrow {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5%;
+}
+
+.dots {
+    margin-top: 30px;
+}
+
+.dots .dot {
+    padding: 5px 15px;
+    border-radius: 50%;
+    border: 5px solid var(--secondary-color);
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 5px;
+}
+
+.dots .dot.active {
+    border-color: orange;
+}
+
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan:
+        hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --varyDarkBlue: hsl(234, 12%, 34%);
+    --grayishBlue: hsl(229, 6%, 66%);
+    --veryLightGray: hsl(0, 0%, 98%);
+    --weight1: 200;
+    --weight2: 400;
+    --weight3:
+        600;
+}
+
+.glass {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255,
+            0.8);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.3px);
+    -webkit-backdrop-filter: blur(12.3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin: 10;
+}
+
+.container2 {
+    width: 50%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,900');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:
+        center;
+}
+
+.blob-c {
+    min-height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    opacity: 20%;
+    background: linear-gradient(178deg, black,
+            #0012ff);
+    /* background: rgba(255,255,255,0.1) */
+}
+
+.shape-blob {
+    background: #26C3F9;
+    height: 60px;
+    width: 80px;
+    border-radius: 40% 50% 30% 40%;
+    animation: transform 18s ease-in-out infinite both alternate,
+        movement_one 12s ease-in-out infinite both;
+    opacity: .7;
+    position: absolute;
+    left: 75%;
+    top: 40%;
+}
+
+.shape-blob.one {
+    background: #0085FF;
+    height: 150px;
+    width: 200px;
+    left: 10px;
+    top: 10px;
+    transform: rotate(-180deg);
+    animation:
+        transform 8s ease-in-out infinite both alternate, movement_two 20s ease-in-out infinite both;
+}
+
+.shape-blob.six {
+    background: #0EAFFF;
+    height:
+        70px;
+    width: 100px;
+    left: 160px;
+    top: 200px;
+    transform: rotate(-180deg);
+    animation: transform 5s ease-in-out infinite both alternate, movement_two 5s ease-in-out infinite both;
+}
+
+.shape-blob.four {
+    background: #4EAEFF;
+    height:
+        100px;
+    width: 80px;
+    left: 350px;
+    top: 60px;
+    transform: rotate(-180deg);
+    animation: transform 17s ease-in-out infinite both alternate, movement_two 13s ease-in-out infinite both;
+}
+
+.shape-blob.five {
+    background: #0085FF;
+    height: 100px;
+    width: 80px;
+    left: 480px;
+    top: 30px;
+    transform:
+        rotate(-180deg);
+    animation: transform 12s ease-in-out infinite both alternate, movement_two 18s ease-in-out infinite both;
+}
+
+.shape-blob.two {
+    background: #4EAEFF;
+    height: 150px;
+    width: 150px;
+    left: 600px;
+    top: 150px;
+    transform: rotate(-180deg);
+    animation: transform 10s ease-in-out infinite both alternate, movement_two 10s ease-in-out infinite both;
+}
+
+.shape-blob.three {
+    background: #0EAFFF;
+    height: 150px;
+    width: 150px;
+    left:
+        800px;
+    top: 30px;
+    transform: rotate(-180deg);
+    animation: transform 7s ease-in-out infinite both alternate, movement_two 23s ease-in-out infinite both;
+}
+
+@keyframes transform {
+
+    0%,
+    100% {
+        border-radius: 33% 67% 70% 30% / 30% 40% 70% 70%;
+    }
+
+    20% {
+        border-radius: 37% 63% 51% 49% / 37% 35% 35% 63%;
+    }
+
+    40% {
+        border-radius: 36% 64% 64% 36% / 64% 48% 52% 26%;
+    }
+
+    60% {
+        border-radius: 37% 63% 51% 49% / 30% 30% 70% 73%;
+    }
+
+    80% {
+        border-radius: 40% 60% 42% 58% / 51% 51% 49% 59%;
+    }
+}
+
+@keyframes movement_one {
+
+    0%,
+    100% {
+        transform: none;
+    }
+
+    50% {
+        transform: translate(50%, 20%) rotateY(10deg) scale(1);
+    }
+}
+
+@keyframes movement_two {
+
+    0%,
+    500% {
+        transform: none;
+    }
+
+    50% {
+        transform: translate(50%, 20%) rotate(-200deg) scale(1.3);
+    }
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    letter-spacing:
+        2px;
+    font-weight: 900;
+    color: white;
+    line-height: .9em;
+    position: absolute;
+    z-index: 4;
+    text-shadow: 2px 3px 15px rgba(0, 0, 0, .15);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans',
+        sans-serif
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items:
+        center;
+    min-height: 100vh;
+    background: #181e2e;
+    color: aqua;
+    flex-direction:
+        column;
+}
+
+.square {
+    position: relative;
+    margin: 0 10px;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:
+        100%;
+    height: 100%;
+    border: 2px solid rgb(255, 0, 0);
+    border-radius: 32% 58% 69% 43% / 48% 32% 59% 55%;
+    transition: 0.5s;
+    animation: animate 6s linear infinite;
+}
+
+.square span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(0, 242, 255);
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    transition: 0.5s;
+    animation: animate 4s linear infinite;
+}
+
+.square span:nth-child(3) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(0, 255, 26);
+    border-radius: 31% 45% 74% 35% / 38% 56% 51% 87%;
+    transition: 0.5s;
+    animation: animate2 10s linear infinite;
+}
+
+.content {
+    position: relative;
+    padding: 40px 60px;
+    color: aqua;
+    text-align: center;
+    transition: 0.5s;
+    z-index: 1000;
+}
+
+.content a {
+    position: relative;
+    display:
+        inline-block;
+    margin-top: 10px;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 6px 18px;
+    text-decoration: none;
+    color: rgb(225, 255, 0);
+    font-weight: 600;
+    border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
+}
+
+.content a:hover {
+    background: white;
+    color: #333;
+}
+
+@keyframes animate {
+    0% {
+        transform:
+            rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.geeks {
+    padding: 200px;
+    text-align: center;
+}
+
+section {
+    width: 100%;
+    min-height:
+        300px;
+}
+
+.pattern {
+    position: relative;
+}
+
+.box p {
+    color:
+        var(--grayishBlue);
+}
+
+.box {
+    border-radius: 5px;
+    box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+    padding: 30px;
+    margin: 20px;
+}
+
+img {
+    float: right;
+}
+
+@media (max-width: 450px) {
+    .box {
+        height: 200px;
+    }
+}
+
+@media (max-width: 950px) and (min-width: 450px) {
+    .box {
+        text-align: center;
+        height: 180px;
+    }
+}
+
+.cyan {
+    border-top: 3px solid var(--cyan);
+}
+
+.red {
+    border-top: 3px solid var(--red);
+}
+
+.blue {
+    border-top: 3px solid var(--blue);
+}
+
+.orange {
+    border-top: 3px solid var(--orange);
+}
+
+h2 {
+    font-weight: var(--weight3);
+}
+
+.containere {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+}
+
+.containere2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    margin: 45vh;
+}
+
+@media (max-width: 500px) {
+    .containere2 {
+        margin: 70vh;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 950px) {
+    .row1-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .row2-container {
+        display:
+            flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box-down {
+        position:
+            relative;
+        top: 150px;
+    }
+
+    .box {
+        width: 20%;
+    }
+
+    .header p {
+        width: 30%;
+    }
+}
+
+.head1 {
+    display: inline-block;
+    margin: 20vh;
+    border: 2px solid rgb(104, 194,
+            236);
+    padding: 6px 18px;
+    text-decoration: none;
+    color: #01d0ff;
+    font-weight:
+        600;
+    border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
+}
+
+.imaged {
+    height:
+        70vh;
+    width: auto;
+}
+
+.nav-link,
+.navbar-brand {
+    color: white;
+}
+
+.containera {
+    display: flex;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
